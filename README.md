@@ -60,6 +60,13 @@ Ao final da gravação o código deve ficar equivalente ao módulo `15_WorkingWi
 * Maven 3.9+
 * MySQL rodando em `localhost:3306` com usuário `root` e senha `admin123` (ajuste em `src/main/resources/application.yml` se for diferente)
 
+### Estrutura: before e after
+
+* `01-swagger-before`: o ponto de partida, deixado intacto para você comparar
+* `02-swagger-after`: começa idêntica à pasta before e é nela que o Swagger é adicionado durante o vídeo
+
+Cada pasta é um projeto Maven completo. Entre em uma delas (`cd 02-swagger-after`) antes de executar os comandos abaixo.
+
 ### Passo a passo
 
 1. Crie o banco de dados: `CREATE DATABASE rest_with_spring_boot_erudio;`
