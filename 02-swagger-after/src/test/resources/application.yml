@@ -1,1 +1,18 @@
-spring.application.name=rest-with-spring-boot-and-java-erudio
+server:
+  port: 8888
+spring:
+  application:
+    name: rest-with-spring-boot-and-java-erudio
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+springdoc:
+  api-docs:
+    enabled: true
+  paths-to-match:
+    - /api/**/v1/**
+  swagger-ui:
+    enabled: true

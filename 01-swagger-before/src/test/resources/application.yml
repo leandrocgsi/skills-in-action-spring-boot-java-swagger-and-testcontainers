@@ -1,1 +1,12 @@
-spring.application.name=rest-with-spring-boot-and-java-erudio
+spring:
+  application:
+    name: rest-with-spring-boot-and-java-erudio
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/skills_in_action_claude_code_swagger_erudio?useTimezone=true&serverTimezone=UTC
+    username: root
+    password: admin123
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false

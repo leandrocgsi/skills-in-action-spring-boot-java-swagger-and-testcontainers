@@ -104,7 +104,7 @@
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<configuration>
-					<url>jdbc:mysql://localhost:3306/rest_with_spring_boot_erudio?useTimezone=true&amp;serverTimezone=UTC</url>
+					<url>jdbc:mysql://localhost:3306/skills_in_action_claude_code_swagger_erudio?useTimezone=true&amp;serverTimezone=UTC</url>
 					<user>root</user>
 					<password>admin123</password>
 				</configuration>

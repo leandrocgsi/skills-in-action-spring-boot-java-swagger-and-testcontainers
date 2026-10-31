@@ -1,5 +1,5 @@
 # skills-in-action-spring-boot-java-swagger-and-testcontainers
-### Base de código do projeto REST de pessoas com HATEOAS, em Spring Boot 4.1 e Java 25, usada como ponto de partida para adicionar Swagger com o Claude Code.
+### Base de código do projeto REST de pessoas com HATEOAS, em Spring Boot 4.1 e Java 25, usada como ponto de partida para adicionar Swagger e testes de integração com Testcontainers com o Claude Code.
 
 ![Forks](https://img.shields.io/github/forks/leandrocgsi/skills-in-action-spring-boot-java-swagger-and-testcontainers)
 ![Stars](https://img.shields.io/github/stars/leandrocgsi/skills-in-action-spring-boot-java-swagger-and-testcontainers)
@@ -33,7 +33,7 @@ Este repositório é derivado do código do curso [Formação Spring Boot 2026: 
 
 # Sobre este repositório
 
-Este repositório é o ponto de partida de uma série de vídeos *skills in action*, em que o **Claude Code** e **skills** são usados para adicionar **documentação com Swagger / OpenAPI** a uma API REST já existente. A base é uma API de pessoas com HATEOAS atualizada para **Spring Boot 4.1.1** e **Java 25**, ainda sem documentação OpenAPI.
+Este repositório é o ponto de partida de uma série de vídeos *skills in action*, em que o **Claude Code** e **skills** são usados para adicionar **documentação com Swagger / OpenAPI** e **testes de integração com Testcontainers** a uma API REST já existente. O que no curso leva horas, aqui é feito em minutos. A base é uma API de pessoas com HATEOAS atualizada para **Spring Boot 4.1.1** e **Java 25**, ainda sem documentação OpenAPI e sem testes de integração.
 
 ## O que tem aqui hoje (ponto de partida)
 
@@ -45,12 +45,14 @@ Este repositório é o ponto de partida de uma série de vídeos *skills in acti
 
 ## Resultado final dos vídeos
 
-Ao final da gravação o código deve ficar equivalente ao módulo `15_WorkingWithSwaggerOpenAPI` do curso, já nas versões mais recentes das tecnologias:
+Ao final da gravação o código deve ficar equivalente aos módulos `15_WorkingWithSwaggerOpenAPI` e `17_IntroToIntegrationTests` do curso, já nas versões mais recentes das tecnologias:
 
 * springdoc OpenAPI com Swagger UI
 * Metadados da API (título, versão, descrição e licença) em uma configuração `OpenApiConfig`
 * Controllers anotados com `@Tag` e documentados por interfaces `*ControllerDocs` com `@Operation` e `@ApiResponse`
 * Recurso de livros ao lado do de pessoas, também documentado
+* Testes de integração com **Testcontainers** (MySQL em container) e REST Assured
+* Teste que valida a documentação do Swagger UI e uma classe base que sobe o container e injeta o datasource nos testes
 
 ## Como usar o código
 
@@ -59,21 +61,22 @@ Ao final da gravação o código deve ficar equivalente ao módulo `15_WorkingWi
 * Java 25
 * Maven 3.9+
 * MySQL rodando em `localhost:3306` com usuário `root` e senha `admin123` (ajuste em `src/main/resources/application.yml` se for diferente)
+* Docker em execução, necessário para os testes de integração com Testcontainers que serão adicionados
 
 ### Estrutura: before e after
 
 * `01-swagger-before`: o ponto de partida, deixado intacto para você comparar
-* `02-swagger-after`: começa idêntica à pasta before e é nela que o Swagger é adicionado durante o vídeo
+* `02-swagger-after`: começa idêntica à pasta before e é nela que o Swagger e os testes de integração são adicionados durante o vídeo
 
 Cada pasta é um projeto Maven completo. Entre em uma delas (`cd 02-swagger-after`) antes de executar os comandos abaixo.
 
 ### Passo a passo
 
-1. Crie o banco de dados: `CREATE DATABASE rest_with_spring_boot_erudio;`
+1. Crie o banco de dados: `CREATE DATABASE skills_in_action_claude_code_swagger_erudio;`
 2. Execute a aplicação: `mvn spring-boot:run`. As migrations do Flyway criam e populam a tabela na primeira execução
 3. Chame os endpoints em `http://localhost:8080/api/person/v1`, enviando `Accept: application/json`, `application/xml` ou `application/yaml`
 4. Rode os testes unitários com `mvn test`. O teste de contexto `StartupTests` depende de um datasource configurado e falha sem ele
-5. Abra o repositório no Claude Code e siga os vídeos para adicionar o Swagger
+5. Abra a pasta `02-swagger-after` no Claude Code e siga os vídeos para adicionar o Swagger e os testes de integração
 
 # Outros Cursos Erudio
 
